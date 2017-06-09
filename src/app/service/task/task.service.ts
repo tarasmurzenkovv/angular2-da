@@ -15,4 +15,8 @@ export class TaskService {
 
     return [task];
   }
+
+  public getTaskTypes(): string[] {
+    return [Type.TECHNICAL_TASK, Type.BUG, Type.FEATURE, Type.IMPROVEMENT, Type.TASK];
+  }
 }
