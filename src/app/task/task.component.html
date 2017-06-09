@@ -1,3 +1,60 @@
-<p>
-  task works!
-</p>
+<div class="container text-center">
+  <h3>{{task.taskName}}</h3>
+</div>
+<div class="container center-block">
+  <div class="row">
+    <div class="col-md-5 col-md-offset-2">
+      <strong>Project: </strong><a href="#">[link to the project]</a>
+    </div>
+    <div class="col-md-5">
+      <strong>Reporter: </strong>{{reportingPerson.firstName + ' ' + reportingPerson.lastName}}
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-2">
+      <strong>Status: </strong>{{task.status}}
+    </div>
+    <div class="col-md-5">
+      <strong>Responsible: </strong>{{responsiblePerson.firstName + ' ' + responsiblePerson.lastName}}
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-2">
+      <strong>Type: </strong>{{task.type}}
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-2">
+      <strong>Estimate: </strong>{{task.estimate}}
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-2">
+      <strong>Start Date: </strong>{{task.range.start| date:"longDate" }}
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-2">
+      <strong>End Date: </strong>{{task.range.end| date:"longDate" }}
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-2">
+      <strong>Task description: </strong>{{task.description}}
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-2">
+      <button class="btn btn-primary">New</button>
+      <button class="btn btn-success">Save</button>
+      <button class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+</div>
