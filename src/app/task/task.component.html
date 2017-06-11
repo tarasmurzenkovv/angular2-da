@@ -4,66 +4,30 @@
 </div>
 <div class="container center-block">
   <div class="row">
-    <div class="col-md-5 col-md-offset-2">
-      <strong>Project: </strong><a href="#">[link to the project]</a>
-    </div>
-    <div class="col-md-5">
-      <strong>Reporter: </strong>{{reportingPerson.firstName + ' ' + reportingPerson.lastName}}
-    </div>
-  </div>
-  <br/>
-  <div class="row">
-    <div class="col-md-5 col-md-offset-2">
-      <strong>Status: </strong>
-      <div *ngIf="!editMode">{{selectedType}}</div>
-      <select *ngIf="editMode">
-        <option *ngFor="let type of types">{{type}}</option>
-      </select>
-    </div>
-    <div class="col-md-5">
-      <strong>Responsible: </strong>{{responsiblePerson.firstName + ' ' + responsiblePerson.lastName}}
-    </div>
-  </div>
-  <br/>
-  <div class="row">
-    <div class="col-md-5 col-md-offset-2">
-      <strong>Type: </strong>{{task.type}}
-    </div>
-  </div>
-  <br/>
-  <div class="row">
-    <div class="col-md-5 col-md-offset-2">
-      <strong>Estimate: </strong>{{task.estimate}}
-    </div>
-  </div>
-  <br/>
-  <div class="row">
-    <div class="col-md-5 col-md-offset-2">
-      <strong>Start Date: </strong>{{task.range.start| date:"longDate" }}
-    </div>
-  </div>
-  <br/>
-  <div class="row">
-    <div class="col-md-5 col-md-offset-2">
-      <strong>End Date: </strong>{{task.range.end| date:"longDate" }}
-    </div>
-  </div>
-  <br/>
-  <div class="row">
-    <div class="col-md-5 col-md-offset-2" *ngIf="!editMode">
-      <strong>Task description: </strong>{{task.description}}
-    </div>
-    <div class="col-md-5 col-md-offset-2" *ngIf="editMode">
-      <strong>Task description: </strong><input [value]="task.description" (input)="onEdit($event)"/>
-    </div>
-  </div>
-  <br/>
-  <div class="row">
-    <div class="col-md-5 col-md-offset-2">
-      <button class="btn btn-primary" (click)="add(task)">New</button>
-      <button class="btn btn-success" (click)="edit()">Edit</button>
-      <button *ngIf="editMode" class="btn btn-info" (click)="save()">Save</button>
-      <button class="btn btn-danger" (click)="delete()">Delete</button>
+    <div class="container center-block">
+      <div class="row">
+        <div class="col-md-3 col-md-offset-4">
+          <p>Hi there</p>
+          <p>Hi there</p>
+          <p>Hi there</p>
+          <p>Hi there</p>
+          <p>Hi there</p>
+          <p>Hi there</p>
+          <p>Hi there</p>
+        </div>
+        <div class="col-md-3">
+          <p>Hi there another column</p>
+          <p>Hi there another column</p>
+          <p>Hi there another column</p>
+        </div>
+      </div>
+      <br>
+      <div class="">
+        <div class="col-md-3 col-md-offset-4">
+          <button class="btn btn-primary">New</button>
+          <button class="btn btn-success">Edit</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
