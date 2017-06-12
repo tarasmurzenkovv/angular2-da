@@ -1,0 +1,31 @@
+<div class="container text-center">
+  <h3>{{task.taskName}}</h3>
+</div>
+<div class="container center-block">
+  <div class="row">
+    <div class="container center-block">
+      <div class="row">
+        <div class="col-md-3 col-lg-offset-4">
+          <p><label for="type-select">Status: </label> {{task.status}}</p>
+          <p><label for="type-select">Type: </label><select id="type-select" class="input-sm">
+              <option *ngFor="let type of types">{{type}}</option>
+            </select>
+          </p>
+          <p><strong>Estimate:</strong> {{task.estimate}}</p>
+          <p><strong>Start Date:</strong> {{task.range.start|date:'longDate'}}</p>
+          <p><strong>End Date:</strong> {{task.range.end|date:'longDate'}}</p>
+          <p><strong>Description:</strong> {{task.description}}</p>
+        </div>
+        <div class="col-md-3">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-3 col-md-offset-4">
+          <button class="btn btn-primary" (click)="update(task)">Save</button>
+          <button class="btn btn-info" (click)="cancel()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
