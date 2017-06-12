@@ -6,8 +6,15 @@ import {TaskUri} from '../../../uri/TaskUri';
 import {Utils} from '../../../util/Utils';
 import {Person} from '../../../model/person';
 import {PersonService} from '../../../service/person/person.service';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
+/**
+ *
+ * TODO:
+ * TODO 1. custom validator  for the estimate/date range
+ * TODO 2. add css errors
+ *
+ */
 @Component({
   selector: 'app-task-edit',
   styleUrls: ['./task-edit.component.css'],
@@ -76,7 +83,7 @@ export class TaskEditComponent implements OnInit {
   }
 
   update() {
-    console.log(this.updatedTask.type);
+    console.log(this.updatedTask);
   }
 
   cancel() {
