@@ -1,11 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import {AppComponent} from './app.component';
+import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {TaskComponent} from './task/task.component';
 import {TaskService} from './service/task/task.service';
 import {PersonService} from "./service/person/person.service";
+import {ProjectService} from "./service/project/project.service";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {PersonService} from "./service/person/person.service";
   imports: [
     BrowserModule
   ],
-  providers: [TaskService, PersonService],
+  providers: [TaskService, PersonService, ProjectService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

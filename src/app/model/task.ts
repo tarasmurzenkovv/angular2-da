@@ -43,6 +43,11 @@ export class TimeRange {
   }
 }
 
+export class Project {
+  constructor(public projectName: string) {
+  }
+}
+
 /**
  * Models the simple task.
  * @author Taras Murzenkov

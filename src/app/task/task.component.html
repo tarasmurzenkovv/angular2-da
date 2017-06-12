@@ -7,18 +7,17 @@
     <div class="container center-block">
       <div class="row">
         <div class="col-md-3 col-lg-offset-4">
-          <p>Hi there</p>
-          <p>Hi there</p>
-          <p>Hi there</p>
-          <p>Hi there</p>
-          <p>Hi there</p>
-          <p>Hi there</p>
-          <p>Hi there</p>
+          <p><strong>Project:</strong> {{project.projectName}}</p>
+          <p><strong>Status:</strong> {{task.status}}</p>
+          <p><strong>Type:</strong> {{task.type}}</p>
+          <p><strong>Estimate:</strong> {{task.estimate}}</p>
+          <p><strong>Start Date:</strong> {{task.range.start|date:'longDate'}}</p>
+          <p><strong>End Date:</strong> {{task.range.end|date:'longDate'}}</p>
+          <p><strong>Description:</strong> {{task.description}}</p>
         </div>
         <div class="col-md-3">
-          <p>Hi there another column</p>
-          <p>Hi there another column</p>
-          <p>Hi there another column</p>
+          <p><strong>Reporter:</strong> {{reportingPerson.toString()}}</p>
+          <p><strong>Responsible:</strong> {{responsiblePerson.toString()}}</p>
         </div>
       </div>
       <br>
@@ -26,6 +25,7 @@
         <div class="col-md-3 col-md-offset-4">
           <button class="btn btn-primary">New</button>
           <button class="btn btn-success">Edit</button>
+          <button class="btn btn-danger">Delete</button>
         </div>
       </div>
     </div>

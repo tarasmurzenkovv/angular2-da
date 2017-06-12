@@ -1,8 +1,9 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {TaskService} from '../service/task/task.service';
-import {Task} from '../model/task';
+import {Project, Task} from '../model/task';
 import {PersonService} from '../service/person/person.service';
 import {Person} from '../model/person';
+import {ProjectService} from "../service/project/project.service";
 
 @Component({
   selector: 'app-task',
@@ -12,13 +13,14 @@ export class TaskComponent implements OnInit, OnChanges {
   task: Task;
   reportingPerson: Person;
   responsiblePerson: Person;
+  project: Project;
   selectedType: string;
   types: string[];
   editMode = false;
   @Input()
   newDescription: string;
 
-  constructor(private taskService: TaskService, private personService: PersonService) {
+  constructor(private taskService: TaskService, private personService: PersonService, private projectService: ProjectService) {
   }
 
   ngOnInit() {
@@ -27,6 +29,7 @@ export class TaskComponent implements OnInit, OnChanges {
     this.responsiblePerson = this.personService.getResponsiblePerson();
     this.types = this.taskService.getTaskTypes();
     this.selectedType = this.types[4];
+    this.project = this.projectService.getProject();
   }
 
   ngOnChanges(changes: SimpleChanges) {
