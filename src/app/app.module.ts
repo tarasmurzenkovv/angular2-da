@@ -11,6 +11,7 @@ import {ProjectService} from './service/project/project.service';
 import {TaskDisplayComponent} from './component/task/task-display/task-display.component';
 import {appRoutes} from './routes';
 import {RouterModule} from '@angular/router';
+import { SelectOptionDirective } from './directive/select-option.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {RouterModule} from '@angular/router';
     TaskEditComponent,
     TaskDisplayComponent,
     NavBarComponent,
-    TaskEditComponent
+    TaskEditComponent,
+    SelectOptionDirective
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes)
