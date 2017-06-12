@@ -1,12 +1,8 @@
 export class Status {
-  public static GATHERING_REQUIREMENTS = 'Gathering requirements';
-  public static READY_FOR_DEV = 'Ready for development';
-  public static DEV_IN_PROGRESS = 'Development in progress';
+  public static OPEN = 'Open';
+  public static DEVELOPMENT = 'Ready for development';
   public static READY_FOR_QA = 'Ready for QA';
-  public static TESTING_IN_PROGRESS = 'Testing in progress';
-  public static ACCEPTANCE = 'Ready for acceptance';
-  public static ACCEPTED = 'Accepted';
-  public static NOT_ACCEPTED = 'Not accepted';
+  public static CLOSED = 'Closed';
 }
 
 export class Type {

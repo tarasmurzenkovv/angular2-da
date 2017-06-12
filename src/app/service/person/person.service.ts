@@ -7,10 +7,18 @@ export class PersonService {
   constructor() {
   }
 
-  getReportingPerson(): Person {
+  get reportingPerson(): Person {
     return new Person('Roger', 'Federer');
   }
-  getResponsiblePerson(): Person {
+  get responsiblePerson(): Person {
     return new Person('David', 'Beckham');
+  }
+
+  set responsiblePerson(responsiblePerson: Person) {
+    this.responsiblePerson = responsiblePerson;
+  }
+
+  set reportingPerson(assignablePerson: Person) {
+    this.reportingPerson = assignablePerson;
   }
 }

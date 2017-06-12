@@ -30,9 +30,9 @@ export class TaskDisplayComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.task = this.taskService.getTasks()[0];
-    this.reportingPerson = this.personService.getReportingPerson();
-    this.responsiblePerson = this.personService.getResponsiblePerson();
-    this.types = this.taskService.getTaskTypes();
+    this.reportingPerson = this.personService.reportingPerson;
+    this.responsiblePerson = this.personService.responsiblePerson;
+    this.types = this.taskService.getAvailableTaskTypes();
     this.selectedType = this.types[4];
     this.project = this.projectService.getProject();
   }
@@ -42,13 +42,8 @@ export class TaskDisplayComponent implements OnInit, OnChanges {
   }
 
   edit(task: Task) {
-    /*    this.editMode = true;
-        const first = this.types[0];
-        const toSwapWith = this.types[this.types.indexOf(this.selectedType)];
-        this.types[0] = toSwapWith;
-        this.types[this.types.indexOf(this.selectedType)] = first;
-        console.log(this.newDescription);*/
     this.taskService.setEditableTask(this.task);
+    this.personService.reportingPerson = this.reportingPerson;
     this.router.navigate([TaskUri.EDIT_TASK]);
   }
 

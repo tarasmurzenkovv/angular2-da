@@ -3,30 +3,84 @@
 </div>
 <div class="container center-block">
   <div class="row">
-    <div class="container center-block">
-      <div class="row">
-        <div class="col-md-3 col-lg-offset-4">
-          <p><label for="type-select">Status: </label> {{task.status}}</p>
-          <p><label for="type-select">Type:</label>
-            <select id="type-select" class="input-sm">
-              <option *ngFor="let type of types">{{type}}</option>
+    <div class="col-md-7 col-lg-offset-3">
+      <form [formGroup]="editableTaskForm" (ngSubmit)="saveEditableTask(editableTaskForm.value)"
+            class="form-horizontal">
+        <div class="form-group">
+          <label for="type-select" class="col-sm-2 control-label">Status: </label>
+          <div class="col-sm-10">
+            <select id="type-select"
+                    class="input-sm form-control"
+                    formControlName="statusFormControl">
+              <option *ngFor="let status of statuses">{{status}}</option>
             </select>
-          </p>
-          <p><strong>Estimate:</strong> {{task.estimate}}</p>
-          <p><strong>Start Date:</strong> {{task.range.start|date:'longDate'}}</p>
-          <p><strong>End Date:</strong> {{task.range.end|date:'longDate'}}</p>
-          <p><strong>Description:</strong> {{task.description}}</p>
+          </div>
         </div>
-        <div class="col-md-3">
+        <div class="form-group">
+          <label for="status-select" class="col-sm-2 control-label" >Type: </label>
+          <div class="col-sm-10">
+            <select id="status-select"
+                    class="input-sm form-control" formControlName="taskTypeFormControl">
+              <option *ngFor="let type of types" >{{type}}</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-md-3 col-md-offset-4">
-          <button class="btn btn-primary" (click)="update(task)">Save</button>
-          <button class="btn btn-info" (click)="cancel()">Cancel</button>
+        <div class="form-group">
+          <label for="estimate-select" class="col-sm-2 control-label">Estimate: </label>
+          <div class="col-sm-10">
+            <input type="number"
+                   id="estimate-select"
+                   class="form-control"
+                   [value]="task.estimate"
+                   formControlName="taskEstimateFormControl">
+          </div>
         </div>
-      </div>
+        <div class="form-group">
+          <label for="start-date-select" class="col-sm-2 control-label">Start Date: </label>
+          <div class="col-sm-10">
+            <input type="date" id="start-date-select"
+                   class="form-control text-center"
+                   [value]="task.range.start | date:'yyyy-MM-dd'"
+                   formControlName="startDateFormControl"
+                   name="startDate"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="end-date-select" class="col-sm-2 control-label">End Date: </label>
+          <div class="col-sm-10">
+            <input type="date"
+                   id="end-date-select"
+                   class="text-center form-control"
+                   [value]="task.range.end | date:'yyyy-MM-dd'"
+                   formControlName="endDateFormControl"
+                   name="endDate"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description-select" class="col-sm-2 control-label">Description: </label>
+          <em *ngIf="editableTaskForm.controls.taskDescriptionFormControl.errors">Required</em>
+          <div class="col-sm-10">
+            <textarea id="description-select"
+                      [value]="task.description"
+                      class="form-control"
+                      formControlName="taskDescriptionFormControl"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="responsible-select" class="col-sm-2 control-label">Responsible: </label>
+          <div class="col-sm-10">
+            <input type="text" id="responsible-select" class="form-control" [value]="reportingPerson"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reporting-select" class="col-sm-2 control-label">Reporting: </label>
+          <div class="col-sm-10">
+            <input type="text" id="reporting-select" class="form-control" [value]="responsiblePerson"/>
+          </div>
+        </div>
+      </form>
+      <button class="btn btn-primary" type="submit" (click)="update()">Update</button>
+      <button class="btn btn-info" (click)="cancel()">Cancel</button>
     </div>
   </div>
 </div>

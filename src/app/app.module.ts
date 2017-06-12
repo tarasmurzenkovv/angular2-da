@@ -12,6 +12,7 @@ import {TaskDisplayComponent} from './component/task/task-display/task-display.c
 import {appRoutes} from './routes';
 import {RouterModule} from '@angular/router';
 import { SelectOptionDirective } from './directive/select-option.directive';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { SelectOptionDirective } from './directive/select-option.directive';
     SelectOptionDirective
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(appRoutes)
+    BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, ReactiveFormsModule
   ],
   providers: [TaskService, PersonService, ProjectService],
   bootstrap: [AppComponent]

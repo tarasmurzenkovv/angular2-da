@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Status, Task, TimeRange, Type} from '../../model/task';
+import {Person} from '../../model/person';
 
 @Injectable()
 export class TaskService {
@@ -13,13 +14,17 @@ export class TaskService {
     const timeRange = new TimeRange(new Date('01/02/2014'), new Date('01/02/2015'));
     const taskDescription = 'fix bug on front end';
     const taskName = 'Task AP-0004';
-    const task = new Task(taskName, Status.GATHERING_REQUIREMENTS, Type.TECHNICAL_TASK, 3, timeRange, taskDescription);
+    const task = new Task(taskName, Status.OPEN, Type.TECHNICAL_TASK, 3, timeRange, taskDescription);
 
     return [task];
   }
 
-  public getTaskTypes(): string[] {
+  public getAvailableTaskTypes(): string[] {
     return [Type.TECHNICAL_TASK, Type.BUG, Type.FEATURE, Type.IMPROVEMENT, Type.TASK];
+  }
+
+  public getAvailableStatuses(): string[] {
+    return [Status.OPEN, Status.DEVELOPMENT, Status.READY_FOR_QA, Status.CLOSED];
   }
 
   public save(task: Task) {
@@ -38,6 +43,7 @@ export class TaskService {
   public getEditableTask(): Task {
     return this.editableTask;
   }
+
   public getEditableTaskDummy(): Task {
     return this.getTasks()[0];
   }
@@ -48,5 +54,13 @@ export class TaskService {
 
   public update(task: Task) {
 
+  }
+
+  set responsiblePerson(responsiblePerson: Person) {
+    this.responsiblePerson = responsiblePerson;
+  }
+
+  set reportingPerson(assignablePerson: Person) {
+    this.reportingPerson = assignablePerson;
   }
 }
