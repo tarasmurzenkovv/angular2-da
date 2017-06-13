@@ -33,7 +33,9 @@
         <tr *ngFor="let skill of skills">
           <td>{{skill.Name}}</td>
           <td>{{skill.LevelName}}</td>
-          <td>      <button class="btn btn-info" (click)="editSkill(skill)">Edit</button></td>
+          <td>
+            <button class="btn btn-info" (click)="editSkill(skill)">Edit</button>
+          </td>
         </tr>
 
         </tbody>
