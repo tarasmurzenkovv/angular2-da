@@ -3,22 +3,25 @@ import {Person} from '../../model/person';
 
 @Injectable()
 export class PersonService {
+  private reportingPerson: Person;
+  private responsiblePerson: Person;
 
   constructor() {
   }
 
-  get reportingPerson(): Person {
+  getReportingPerson(): Person {
     return new Person('Roger', 'Federer');
   }
-  get responsiblePerson(): Person {
+
+  getResponsiblePerson(): Person {
     return new Person('David', 'Beckham');
   }
 
-  set responsiblePerson(responsiblePerson: Person) {
+  setResponsiblePerson(responsiblePerson: Person) {
     this.responsiblePerson = responsiblePerson;
   }
 
-  set reportingPerson(assignablePerson: Person) {
+  setReportingPerson(assignablePerson: Person) {
     this.reportingPerson = assignablePerson;
   }
 }

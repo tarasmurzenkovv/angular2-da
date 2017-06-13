@@ -50,8 +50,8 @@ export class TaskEditComponent implements OnInit {
   }
 
   private getPersons() {
-    this.reportingPerson = this.personService.reportingPerson;
-    this.responsiblePerson = this.personService.responsiblePerson;
+    this.reportingPerson = this.personService.getReportingPerson();
+    this.responsiblePerson = this.personService.getResponsiblePerson();
   }
 
   private subscribeForFromChanges() {
@@ -61,11 +61,11 @@ export class TaskEditComponent implements OnInit {
         value['statusFormControl'],
         value['taskTypeFormControl'],
         value['taskEstimateFormControl'],
-        new TimeRange(value['startDateFormControl'], value['endDateFormControl']),
+        new TimeRange(new Date(value['startDateFormControl']), new Date(value['endDateFormControl'])),
         value['taskDescriptionFormControl']
       );
       this.taskService.update(this.updatedTask);
-      this.personService.reportingPerson = new Person(value['responsiblePersonFormControl'], value['taskDescriptionFormControl']);
+      this.personService.setReportingPerson(new Person(value['responsiblePersonFormControl'], value['taskDescriptionFormControl']));
     });
   }
 
