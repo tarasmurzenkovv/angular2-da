@@ -1,4 +1,4 @@
-import {Component, OnInit, setTestabilityGetter} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Task, TimeRange} from '../../../model/task';
 import {TaskService} from '../../../service/task/task.service';
 import {Router} from '@angular/router';
@@ -7,6 +7,7 @@ import {Utils} from '../../../util/Utils';
 import {Person} from '../../../model/person';
 import {PersonService} from '../../../service/person/person.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {EstimateValidatorService} from "../../../service/validator/estimate-validator.service";
 
 /**
  *
@@ -40,7 +41,7 @@ export class TaskEditComponent implements OnInit {
     this.updatedTask = this.task;
     this.initDropDowns();
     this.getPersons();
-    this.editableTaskForm = this.formBuilder.group(this.buildValidatorConfig());
+    this.editableTaskForm = this.formBuilder.group(this.buildValidatorConfig(), {validator: EstimateValidatorService.estimateValidator});
     this.subscribeForFromChanges();
   }
 
@@ -74,7 +75,7 @@ export class TaskEditComponent implements OnInit {
       statusFormControl: [this.task.status, Validators.required],
       taskTypeFormControl: [this.task.type, Validators.required],
       taskEstimateFormControl: [this.task.estimate, Validators.required],
-      taskDescriptionFormControl: [this.task.description, Validators.required],
+      taskDescriptionFormControl: [this.task.description, [Validators.required, EstimateValidatorService.estimateValidator]],
       startDateFormControl: [this.task.range.start, Validators.required],
       endDateFormControl: [this.task.range.end, Validators.required],
       responsiblePersonFormControl: [this.responsiblePerson, Validators.required],

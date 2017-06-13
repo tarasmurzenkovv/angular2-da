@@ -13,6 +13,8 @@ import {appRoutes} from './routes';
 import {RouterModule} from '@angular/router';
 import { SelectOptionDirective } from './directive/select-option.directive';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {EstimateValidatorService} from "./service/validator/estimate-validator.service";
+import { ControlMessagesComponent } from './component/control-messages/control-messages.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,13 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     TaskDisplayComponent,
     NavBarComponent,
     TaskEditComponent,
-    SelectOptionDirective
+    SelectOptionDirective,
+    ControlMessagesComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, ReactiveFormsModule
   ],
-  providers: [TaskService, PersonService, ProjectService],
+  providers: [TaskService, PersonService, ProjectService, EstimateValidatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

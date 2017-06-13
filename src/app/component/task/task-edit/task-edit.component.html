@@ -7,9 +7,10 @@
       <form [formGroup]="editableTaskForm" (ngSubmit)="saveEditableTask(editableTaskForm.value)"
             class="form-horizontal">
         <div class="form-group">
-          <label for="type-select" class="col-sm-2 control-label">Status: </label>
+          <label for="typeSelect" class="col-sm-2 control-label">Status: </label>
+          <em *ngIf="editableTaskForm.controls.statusFormControl.errors">'Status' must be selected</em>
           <div class="col-sm-10">
-            <select id="type-select"
+            <select id="typeSelect"
                     class="input-sm form-control"
                     formControlName="statusFormControl">
               <option *ngFor="let status of statuses">{{status}}</option>
@@ -17,28 +18,30 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="status-select" class="col-sm-2 control-label" >Type: </label>
+          <label for="statusSelect" class="col-sm-2 control-label" >Type: </label>
+          <em *ngIf="editableTaskForm.controls.taskTypeFormControl.errors">'Type' must be selected</em>
           <div class="col-sm-10">
-            <select id="status-select"
+            <select id="statusSelect"
                     class="input-sm form-control" formControlName="taskTypeFormControl">
               <option *ngFor="let type of types" >{{type}}</option>
             </select>
           </div>
         </div>
         <div class="form-group">
-          <label for="estimate-select" class="col-sm-2 control-label">Estimate: </label>
+          <label for="estimateSelect" class="col-sm-2 control-label">Estimate: </label>
+          <em *ngIf="editableTaskForm.controls.taskEstimateFormControl.errors">'Estimate' must be selected</em>
           <div class="col-sm-10">
             <input type="number"
-                   id="estimate-select"
+                   id="estimateSelect"
                    class="form-control"
                    [value]="task.estimate"
                    formControlName="taskEstimateFormControl">
           </div>
         </div>
         <div class="form-group">
-          <label for="start-date-select" class="col-sm-2 control-label">Start Date: </label>
+          <label for="startDateSelect" class="col-sm-2 control-label">Start Date: </label>
           <div class="col-sm-10">
-            <input type="date" id="start-date-select"
+            <input type="date" id="startDateSelect"
                    class="form-control text-center"
                    [value]="task.range.start | date:'yyyy-MM-dd'"
                    formControlName="startDateFormControl"
@@ -46,10 +49,11 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="end-date-select" class="col-sm-2 control-label">End Date: </label>
+          <label for="endDateSelect" class="col-sm-2 control-label">End Date: </label>
+          <em *ngIf="editableTaskForm.controls.taskDescriptionFormControl.errors">Required</em>
           <div class="col-sm-10">
             <input type="date"
-                   id="end-date-select"
+                   id="endDateSelect"
                    class="text-center form-control"
                    [value]="task.range.end | date:'yyyy-MM-dd'"
                    formControlName="endDateFormControl"
@@ -57,25 +61,27 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="description-select" class="col-sm-2 control-label">Description: </label>
-          <em *ngIf="editableTaskForm.controls.taskDescriptionFormControl.errors">Required</em>
+          <label for="descriptionSelect" class="col-sm-2 control-label">Description: </label>
+          <control-messages [control]="editableTaskForm.controls.taskDescriptionFormControl"></control-messages>
           <div class="col-sm-10">
-            <textarea id="description-select"
+            <textarea id="descriptionSelect"
                       [value]="task.description"
                       class="form-control"
                       formControlName="taskDescriptionFormControl"></textarea>
           </div>
         </div>
         <div class="form-group">
-          <label for="responsible-select" class="col-sm-2 control-label">Responsible: </label>
+          <label for="resposibleSelect" class="col-sm-2 control-label">Responsible: </label>
+
           <div class="col-sm-10">
-            <input type="text" id="responsible-select" class="form-control" [value]="reportingPerson"/>
+            <input id="resposibleSelect" class="form-control" [value]="reportingPerson"/>
           </div>
         </div>
         <div class="form-group">
-          <label for="reporting-select" class="col-sm-2 control-label">Reporting: </label>
+          <em *ngIf="editableTaskForm.controls.taskDescriptionFormControl.errors">Required</em>
+          <label for="reportingSelect" class="col-sm-2 control-label">Reporting: </label>
           <div class="col-sm-10">
-            <input type="text" id="reporting-select" class="form-control" [value]="responsiblePerson"/>
+            <input type="text" id="reportingSelect" class="form-control" [value]="responsiblePerson"/>
           </div>
         </div>
       </form>
