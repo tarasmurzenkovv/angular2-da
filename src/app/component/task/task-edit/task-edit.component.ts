@@ -7,7 +7,7 @@ import {Utils} from '../../../util/Utils';
 import {Person} from '../../../model/person';
 import {PersonService} from '../../../service/person/person.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {EstimateValidatorService} from "../../../service/validator/estimate-validator.service";
+import {ValidateInputNumber, ValidateInputText} from '../../../service/validator/CustomValidator';
 
 /**
  *
@@ -30,6 +30,10 @@ export class TaskEditComponent implements OnInit {
   responsiblePerson: Person;
   editableTaskForm: FormGroup;
 
+  static saveEditableTask(editableTaskFormValue) {
+    console.log(editableTaskFormValue);
+  }
+
   constructor(private taskService: TaskService,
               private personService: PersonService,
               private formBuilder: FormBuilder,
@@ -41,8 +45,9 @@ export class TaskEditComponent implements OnInit {
     this.updatedTask = this.task;
     this.initDropDowns();
     this.getPersons();
-    this.editableTaskForm = this.formBuilder.group(this.buildValidatorConfig(), {validator: EstimateValidatorService.estimateValidator});
+    this.editableTaskForm = this.formBuilder.group(this.buildValidatorConfig());
     this.subscribeForFromChanges();
+
   }
 
   private initDropDowns() {
@@ -74,8 +79,8 @@ export class TaskEditComponent implements OnInit {
     return {
       statusFormControl: [this.task.status, Validators.required],
       taskTypeFormControl: [this.task.type, Validators.required],
-      taskEstimateFormControl: [this.task.estimate, Validators.required],
-      taskDescriptionFormControl: [this.task.description, [Validators.required, EstimateValidatorService.estimateValidator]],
+      taskEstimateFormControl: [this.task.estimate, [Validators.required, ValidateInputNumber]],
+      taskDescriptionFormControl: [this.task.description, [Validators.required, ValidateInputText]],
       startDateFormControl: [this.task.range.start, Validators.required],
       endDateFormControl: [this.task.range.end, Validators.required],
       responsiblePersonFormControl: [this.responsiblePerson, Validators.required],
@@ -91,7 +96,16 @@ export class TaskEditComponent implements OnInit {
     this.router.navigate([TaskUri.VIEW_TASK]);
   }
 
-  saveEditableTask(editableTaskFormValue) {
-    console.log(editableTaskFormValue);
+
+  isNotValidDescription(): boolean {
+    return this.editableTaskForm.get('taskDescriptionFormControl').errors &&
+      this.editableTaskForm.get('taskDescriptionFormControl').dirty &&
+      this.editableTaskForm.get('taskDescriptionFormControl').errors.validDescriptionRequired;
+  }
+
+  isNotValidEstimate(): boolean {
+    return this.editableTaskForm.get('taskEstimateFormControl').errors &&
+      this.editableTaskForm.get('taskEstimateFormControl').dirty &&
+      this.editableTaskForm.get('taskEstimateFormControl').errors.validEstimateRequired;
   }
 }
