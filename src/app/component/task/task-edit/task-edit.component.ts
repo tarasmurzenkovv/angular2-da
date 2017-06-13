@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {Task, TimeRange} from '../../../model/task';
 import {TaskService} from '../../../service/task/task.service';
 import {Router} from '@angular/router';
-import {TaskUri} from '../../../uri/TaskUri';
+import {TaskUri} from '../../../uri/Uri';
 import {Utils} from '../../../util/Utils';
-import {Person} from '../../../model/person';
-import {PersonService} from '../../../service/person/person.service';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Employee} from '../../../model/employee';
+import {EmployeeService} from '../../../service/employee/employee.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ValidateInputNumber, ValidateInputText} from '../../../service/validator/CustomValidator';
 
 /**
@@ -26,12 +26,12 @@ export class TaskEditComponent implements OnInit {
   updatedTask: Task;
   types: string[];
   statuses: string[];
-  reportingPerson: Person;
-  responsiblePerson: Person;
+  reportingPerson: Employee;
+  responsiblePerson: Employee;
   editableTaskForm: FormGroup;
 
   constructor(private taskService: TaskService,
-              private personService: PersonService,
+              private personService: EmployeeService,
               private formBuilder: FormBuilder,
               private router: Router) {
   }
@@ -67,7 +67,7 @@ export class TaskEditComponent implements OnInit {
         value['taskDescriptionFormControl']
       );
       this.taskService.update(this.updatedTask);
-      this.personService.setReportingPerson(new Person(value['responsiblePersonFormControl'], value['taskDescriptionFormControl']));
+      this.personService.setReportingPerson(null);
     });
   }
 

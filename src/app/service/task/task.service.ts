@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Status, Task, TimeRange, Type} from '../../model/task';
-import {Person} from '../../model/person';
+import {Employee} from '../../model/employee';
 
 @Injectable()
 export class TaskService {
@@ -56,11 +56,11 @@ export class TaskService {
 
   }
 
-  set responsiblePerson(responsiblePerson: Person) {
+  set responsiblePerson(responsiblePerson: Employee) {
     this.responsiblePerson = responsiblePerson;
   }
 
-  set reportingPerson(assignablePerson: Person) {
+  set reportingPerson(assignablePerson: Employee) {
     this.reportingPerson = assignablePerson;
   }
 }

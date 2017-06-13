@@ -6,13 +6,16 @@ import {NavBarComponent} from './component/nav-bar/nav-bar.component';
 import {TaskService} from './service/task/task.service';
 
 import {TaskEditComponent} from './component/task/task-edit/task-edit.component';
-import {PersonService} from './service/person/person.service';
+import {EmployeeService} from './service/employee/employee.service';
 import {ProjectService} from './service/project/project.service';
 import {TaskDisplayComponent} from './component/task/task-display/task-display.component';
 import {appRoutes} from './routes';
 import {RouterModule} from '@angular/router';
-import { SelectOptionDirective } from './directive/select-option.directive';
+import {SelectOptionDirective} from './directive/select-option.directive';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {EmployeeDisplayComponent} from './component/employee/employee-display/employee-display.component';
+import {HttpModule, JsonpModule} from '@angular/http';
+import {SkillService} from "./service/skill/skill.service";
 
 @NgModule({
   declarations: [
@@ -21,12 +24,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     TaskDisplayComponent,
     NavBarComponent,
     TaskEditComponent,
-    SelectOptionDirective
+    SelectOptionDirective,
+    EmployeeDisplayComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, ReactiveFormsModule
+    BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, ReactiveFormsModule, HttpModule, JsonpModule
   ],
-  providers: [TaskService, PersonService, ProjectService],
+  providers: [TaskService, EmployeeService, ProjectService, SkillService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

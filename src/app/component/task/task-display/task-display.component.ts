@@ -1,11 +1,11 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {TaskService} from '../../../service/task/task.service';
 import {Project, Task} from '../../../model/task';
-import {PersonService} from '../../../service/person/person.service';
-import {Person} from '../../../model/person';
+import {EmployeeService} from '../../../service/employee/employee.service';
+import {Employee} from '../../../model/employee';
 import {ProjectService} from '../../../service/project/project.service';
 import {Router} from '@angular/router';
-import {TaskUri} from '../../../uri/TaskUri';
+import {TaskUri} from '../../../uri/Uri';
 
 @Component({
   selector: 'app-task-display',
@@ -13,8 +13,8 @@ import {TaskUri} from '../../../uri/TaskUri';
 })
 export class TaskDisplayComponent implements OnInit, OnChanges {
   task: Task;
-  reportingPerson: Person;
-  responsiblePerson: Person;
+  reportingPerson: Employee;
+  responsiblePerson: Employee;
   project: Project;
   selectedType: string;
   types: string[];
@@ -23,7 +23,7 @@ export class TaskDisplayComponent implements OnInit, OnChanges {
   newDescription: string;
 
   constructor(private taskService: TaskService,
-              private personService: PersonService,
+              private personService: EmployeeService,
               private projectService: ProjectService,
               private router: Router) {
   }

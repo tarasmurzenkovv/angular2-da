@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="text-center h2">
+    {{employee?.First +' '+ employee?.Last}}
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <img class="img-responsive" src="/assets/user_placeholder.svg">
+    </div>
+    <div class="col-md-3">
+
+      <div class="row">
+        <label>Birthday: </label> {{employee?.Birthday|date:'longDate'}}
+      </div>
+      <div class="row">
+        <label>Email: </label> {{employee?.Email}}
+      </div>
+      <div class="row">
+        <label>Location: </label> {{employee?.Location.Name}}
+      </div>
+      <div class="row">
+        <label>Address: </label> {{employee?.Address}}
+      </div>
+      <div class="row">
+        <label>Skype: </label> {{employee?.Skype}}
+      </div>
+      <div class="row">
+        <label>Phone: </label> {{employee?.Phone}}
+      </div>
+    </div>
+    <div class="col-md-3">
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let skill of skills">
+          <td>{{skill.Name}}</td>
+          <td>{{skill.LevelName}}</td>
+          <td>      <button class="btn btn-info" (click)="editSkill(skill)">Edit</button></td>
+        </tr>
+
+        </tbody>
+      </table>
+      <button class="btn btn-info" (click)="addSkill()">Add Skill</button>
+    </div>
+  </div>
+  <div class="row">
+    [Here should go the employee projects]
+  </div>
+</div>
+
+
+
+
