@@ -6,7 +6,7 @@ import {TaskUri} from '../../../uri/TaskUri';
 import {Utils} from '../../../util/Utils';
 import {Person} from '../../../model/person';
 import {PersonService} from '../../../service/person/person.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ValidateInputNumber, ValidateInputText} from '../../../service/validator/CustomValidator';
 
 /**
@@ -30,10 +30,6 @@ export class TaskEditComponent implements OnInit {
   responsiblePerson: Person;
   editableTaskForm: FormGroup;
 
-  static saveEditableTask(editableTaskFormValue) {
-    console.log(editableTaskFormValue);
-  }
-
   constructor(private taskService: TaskService,
               private personService: PersonService,
               private formBuilder: FormBuilder,
@@ -45,7 +41,7 @@ export class TaskEditComponent implements OnInit {
     this.updatedTask = this.task;
     this.initDropDowns();
     this.getPersons();
-    this.editableTaskForm = this.formBuilder.group(this.buildValidatorConfig());
+    this.editableTaskForm = this.formBuilder.group(this.buildValidatorConfig(), {validator: this.validateDates});
     this.subscribeForFromChanges();
 
   }
@@ -88,6 +84,14 @@ export class TaskEditComponent implements OnInit {
     };
   }
 
+  private validateDates(group: FormGroup) {
+    const startDate = new Date(group.get('startDateFormControl').value);
+    const endDate = new Date(group.get('endDateFormControl').value);
+    if (startDate.getTime() >= endDate.getTime()) {
+      group.get('startDateFormControl').setErrors({startDateRequiredBefore: true})
+    }
+  }
+
   update() {
     console.log(this.updatedTask);
   }
@@ -96,6 +100,11 @@ export class TaskEditComponent implements OnInit {
     this.router.navigate([TaskUri.VIEW_TASK]);
   }
 
+  isNotValidDateRange(): boolean {
+    return this.editableTaskForm.get('startDateFormControl').errors &&
+      this.editableTaskForm.get('startDateFormControl').dirty &&
+      this.editableTaskForm.get('startDateFormControl').errors.startDateRequiredBefore;
+  }
 
   isNotValidDescription(): boolean {
     return this.editableTaskForm.get('taskDescriptionFormControl').errors &&

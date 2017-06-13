@@ -13,12 +13,6 @@ export class Type {
   public static TASK = 'Task';
 }
 
-class TimeRangeError extends Error {
-  constructor(message: string) {
-    super(message);
-  }
-}
-
 /**
  * Models the time range.
  * @author Taras Murzenkov
@@ -30,12 +24,8 @@ export class TimeRange {
    *
    * @param start start date of the range.
    * @param end end date of the range.
-   * @throws TimeRangeError if the start date is greater than the end date.
    */
   constructor(public start: Date, public end: Date) {
-    if (this.start.getTime() > this.end.getTime()) {
-      throw new TimeRangeError('Cannot instantiate the range object. Start date is greater than end date');
-    }
   }
 }
 
@@ -58,7 +48,6 @@ export class Task {
    * @param estimate task estimate
    * @param range time interval
    * @param description task description
-   * @param person person for whom the task is assigned
    */
   constructor(public taskName: string,
               public status: string,
