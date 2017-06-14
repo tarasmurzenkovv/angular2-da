@@ -7,7 +7,16 @@
 .color-white-smoke {
   background-color: whitesmoke;
 }
-.color-white{
+.color-white {
   background-color: white;
 }
-.left-buffer { margin-left:-20px; }
+.left-buffer {
+  margin-left: -20px;
+}
+.background-color {
+  color: #5bc0de;
+}
+.row-m-t {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
