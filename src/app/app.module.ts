@@ -15,7 +15,8 @@ import {SelectOptionDirective} from './directive/select-option.directive';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {EmployeeDisplayComponent} from './component/employee/employee-display/employee-display.component';
 import {HttpModule, JsonpModule} from '@angular/http';
-import {SkillService} from "./service/skill/skill.service";
+import {SkillService} from './service/skill/skill.service';
+import { ProjectDisplayComponent } from './component/employee/project-display/project-display.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {SkillService} from "./service/skill/skill.service";
     NavBarComponent,
     TaskEditComponent,
     SelectOptionDirective,
-    EmployeeDisplayComponent
+    EmployeeDisplayComponent,
+    ProjectDisplayComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, ReactiveFormsModule, HttpModule, JsonpModule

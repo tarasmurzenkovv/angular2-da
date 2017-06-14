@@ -37,14 +37,17 @@
             <button class="btn btn-info" (click)="editSkill(skill)">Edit</button>
           </td>
         </tr>
-
         </tbody>
       </table>
       <button class="btn btn-info" (click)="addSkill()">Add Skill</button>
     </div>
   </div>
+  <br/>
   <div class="row">
-    [Here should go the employee projects]
+    <div class="container center-block" style="border:1px solid #cecece !important;">
+      <div class="row color-light-gray">Projects</div>
+      <app-project-display [projects]="employee?.Projects"></app-project-display>
+    </div>
   </div>
 </div>
 

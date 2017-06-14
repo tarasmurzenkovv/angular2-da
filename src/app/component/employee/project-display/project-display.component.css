@@ -1,0 +1,13 @@
+.left {
+  margin-left: 20px;
+}
+.left-left {
+  margin-left: 40px;
+}
+.color-white-smoke {
+  background-color: whitesmoke;
+}
+.color-white{
+  background-color: white;
+}
+.left-buffer { margin-left:-20px; }

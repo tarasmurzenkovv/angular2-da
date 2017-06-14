@@ -1,0 +1,19 @@
+<div class="row" *ngFor="let project of projects">
+  <div class="color-white-smoke">
+    <div class="row left">
+      {{project.Name}}
+    </div>
+    <div class="color-white">
+      <div class="row left-left" *ngFor="let ticket of project?.Tickets">
+        <div class="col-sm-2">
+          <div class="glyphicon glyphicon-plus">
+            <a href="#">{{ticket.Name}}</a>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          {{ticket.Description}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
