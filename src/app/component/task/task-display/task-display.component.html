@@ -1,31 +1,31 @@
 <div class="container text-center">
-  <h3>{{task.taskName}}</h3>
-  <h3 *ngIf="editMode">Edit mode</h3>
+  <h3><!--{{task.taskName}}--></h3>
+  <h3> <!--*ngIf="editMode"-->>Edit mode</h3>
 </div>
 <div class="container center-block">
   <div class="row">
     <div class="container center-block">
       <div class="row">
         <div class="col-md-3 col-lg-offset-4">
-          <p><strong>Project:</strong> {{project.projectName}}</p>
-          <p><strong>Status:</strong> {{task.status}}</p>
-          <p><strong>Type:</strong> {{task.type}}</p>
-          <p><strong>Estimate:</strong> {{task.estimate}}</p>
-          <p><strong>Start Date:</strong> {{task.range.start|date:'longDate'}}</p>
-          <p><strong>End Date:</strong> {{task.range.end|date:'longDate'}}</p>
-          <p><strong>Description:</strong> {{task.description}}</p>
+          <p><strong>Project:</strong> <!--{{project.projectName}}--></p>
+          <p><strong>Status:</strong> <!--{{task.status}}--></p>
+          <p><strong>Type:</strong> <!--{{task.type}}--></p>
+          <p><strong>Estimate:</strong> <!--{{task.estimate}}--></p>
+          <p><strong>Start Date:</strong> <!--{{task.range.start|date:'longDate'}}--></p>
+          <p><strong>End Date:</strong> <!--{{task.range.end|date:'longDate'}}--></p>
+          <p><strong>Description:</strong> [Task description]</p>
         </div>
         <div class="col-md-3">
-          <p><strong>Reporter:</strong> {{reportingPerson.toString()}}</p>
-          <p><strong>Responsible:</strong> {{responsiblePerson.toString()}}</p>
+          <p><strong>Reporter:</strong> [Here should go the full name of the reporting person]</p>
+          <p><strong>Responsible:</strong> [Here should go the full name of the responsible person]</p>
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col-md-3 col-md-offset-4">
-          <button class="btn btn-primary" (click)="create(task)">New</button>
-          <button class="btn btn-success" (click)="edit(task)">Edit</button>
-          <button class="btn btn-danger" (click)="delete(task)">Delete</button>
+          <button class="btn btn-primary" (click)="create()">New</button>
+          <button class="btn btn-success" (click)="edit()">Edit</button>
+          <button class="btn btn-danger" (click)="delete()">Delete</button>
         </div>
       </div>
     </div>

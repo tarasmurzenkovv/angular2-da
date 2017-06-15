@@ -23,5 +23,6 @@ export interface Employee {
   Projects: Project[],
   Roles: Role[],
   FullName: string,
-  Id: number
+  Id: number,
+  Password: string
 }

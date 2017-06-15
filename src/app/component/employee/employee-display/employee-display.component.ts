@@ -10,11 +10,11 @@ import {Skill} from '../../../model/skill';
 @Component({
   selector: 'app-employee-display',
   templateUrl: './employee-display.component.html',
-  styleUrls: ['./employee-display.component.css']
+  styles: ['.color-light-gray {background-color: lightgray;}']
 })
 export class EmployeeDisplayComponent implements OnInit {
-  private employee: Employee;
-  private skills: Skill[];
+  employee: Employee;
+  skills: Skill[];
 
   constructor(private employeeService: EmployeeService, private skillService: SkillService, private route: ActivatedRoute) {
   }
@@ -36,5 +36,9 @@ export class EmployeeDisplayComponent implements OnInit {
 
   editSkill(skill: Skill) {
     console.log(skill);
+  }
+
+  addSkill() {
+
   }
 }

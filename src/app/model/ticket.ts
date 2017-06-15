@@ -1,4 +1,5 @@
 import {TimeSheet} from './timesheet';
+import {TicketType} from './ticket-type';
 
 export interface Ticket {
   Name: string,
@@ -10,8 +11,10 @@ export interface Ticket {
   Status: string,
   ResponsibleId: number,
   TypeId: number,
+  TicketType: TicketType,
   ProjectId: number,
   Project: string,
   ReporterId: number,
   TimeSheets: TimeSheet[]
+  Id: number
 }
