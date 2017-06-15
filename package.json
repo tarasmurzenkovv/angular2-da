@@ -23,7 +23,10 @@
     "@angular/router": "^4.0.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "pact": "^2.5.0",
+    "pact-web": "^2.5.0",
     "rxjs": "^5.1.0",
+    "selenium-webdriver": "^3.4.0",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
@@ -44,6 +47,8 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.0.4",
     "tslint": "~5.3.2",
-    "typescript": "~2.3.3"
+    "typescript": "~2.3.3",
+    "pact": "^2.5.0",
+    "pact-web": "^2.5.0"
   }
 }

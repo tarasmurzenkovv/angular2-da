@@ -1,31 +1,16 @@
 <div class="container-fluid">
-  <div class="text-center h2">
-    {{employee?.FullName}}
-  </div>
+  <div class="text-center h2">{{employee?.FullName}}</div>
   <div class="row">
     <div class="col-md-3">
       <img class="img-responsive" src="/assets/user_placeholder.svg">
     </div>
     <div class="col-md-3">
-
-      <div class="row">
-        <label>Birthday: </label> {{employee?.Birthday|date:'longDate'}}
-      </div>
-      <div class="row">
-        <label>Email: </label> {{employee?.Email}}
-      </div>
-      <div class="row">
-        <label>Location: </label> {{employee?.Location.Name}}
-      </div>
-      <div class="row">
-        <label>Address: </label> {{employee?.Address}}
-      </div>
-      <div class="row">
-        <label>Skype: </label> {{employee?.Skype}}
-      </div>
-      <div class="row">
-        <label>Phone: </label> {{employee?.Phone}}
-      </div>
+      <div class="row"><label>Birthday: </label> {{employee?.Birthday|date:'longDate'}}</div>
+      <div class="row"><label>Email: </label> {{employee?.Email}}</div>
+      <div class="row"><label>Location: </label> {{employee?.Location.Name}}</div>
+      <div class="row"><label>Address: </label> {{employee?.Address}}</div>
+      <div class="row"><label>Skype: </label> {{employee?.Skype}}</div>
+      <div class="row"><label>Phone: </label> {{employee?.Phone}}</div>
     </div>
     <div class="col-md-3">
       <table class="table">
